@@ -1,0 +1,3 @@
+include ':teacher'
+include ':student'
+rootProject.name = "Attendance Tracker"
