@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".AdminDashboardActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/curved_rectangle"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/manitlogo"></ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="casual"
+                android:gravity="center_horizontal"
+                android:text="Admin Section"
+                android:textColor="#000000"
+                android:textSize="22dp"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutaddteacher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/curved_rectangle"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+                android:fontFamily="casual"
+                android:gravity="center_horizontal"
+                android:text="Add Teacher"
+                android:textColor="#000000"
+                android:textSize="22dp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutcreateclass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/curved_rectangle"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+                android:fontFamily="casual"
+                android:gravity="center_horizontal"
+                android:text="Create Class"
+                android:textColor="#000000"
+                android:textSize="22dp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutaddbatch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/curved_rectangle"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+                android:fontFamily="casual"
+                android:gravity="center_horizontal"
+                android:text="Add Batch"
+                android:textColor="#000000"
+                android:textSize="22dp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutadminchangepassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/curved_rectangle"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+                android:fontFamily="casual"
+                android:gravity="center_horizontal"
+                android:text="Change Password"
+                android:textColor="#000000"
+                android:textSize="22dp"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutlogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/curved_rectangle"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+                android:fontFamily="casual"
+                android:gravity="center_horizontal"
+                android:text="Logout"
+                android:textColor="#000000"
+                android:textSize="22dp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutexit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/curved_rectangle"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+                android:fontFamily="casual"
+                android:gravity="center_horizontal"
+                android:text="Exit"
+                android:textColor="#000000"
+                android:textSize="22dp">
+
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".AddTeacherActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="1dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/manitlogo"
+            android:layout_marginTop="20dp"
+            ></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="casual"
+            android:text="Add Teacher"
+            android:textColor="#FFFFFF"
+            android:textSize="23dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etname"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp"
+            android:drawableLeft="@drawable/ic_baseline_android_24"
+            android:drawablePadding="5dp"
+            android:hint="Name"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#DBE3D4" />
+        <EditText
+            android:id="@+id/etemail"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_baseline_android_24"
+            android:drawablePadding="5dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+
+            android:textColorHint="#DBE3D4"></EditText>
+
+        <EditText
+            android:id="@+id/etregistrationno"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_baseline_android_24"
+            android:drawablePadding="5dp"
+            android:hint="Registration Number"
+            android:textColorHint="#DBE3D4"></EditText>
+
+        <EditText
+            android:id="@+id/etcontactno"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_baseline_android_24"
+            android:drawablePadding="5dp"
+            android:hint="Contact Number"
+            android:inputType="phone"
+            android:textColorHint="#DBE3D4"></EditText>
+
+        <Button
+            android:id="@+id/btlogin"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="#FFFFFF"
+            android:text="Login"
+            android:textColor="#32AAA6"
+            android:onClick="addTeacher"
+            android:textStyle="bold">
+        </Button>
+
+    </LinearLayout>
+
+</LinearLayout>
