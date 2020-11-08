@@ -11,20 +11,27 @@ public class AdminLoginActivity extends AppCompatActivity {
 
     EditText txtusername;
     EditText txtpassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_login);
 
-        txtusername=(EditText)findViewById(R.id.etusername);
-        txtpassword=(EditText)findViewById(R.id.etpasswrd);
+        txtusername = (EditText) findViewById(R.id.etusername);
+        txtpassword = (EditText) findViewById(R.id.etpasswrd);
     }
-    public void callLogin(View view){
-        if(txtusername.getText().toString()!=""&&txtpassword.getText().toString()!=""){
 
-            Intent intent=new Intent(AdminLoginActivity.this,AdminDashboardActivity.class);
-            startActivity(intent);
+    public void callLogin(View view) {
+        if (txtusername.getText().toString() != "") {
+            txtusername.setError("Empty Field");
             return;
         }
+        if (txtpassword.getText().toString() != "") {
+            txtpassword.setError("Empty Field");
+            return;
+        }
+        Intent intent = new Intent(AdminLoginActivity.this, AdminDashboardActivity.class);
+        startActivity(intent);
+        return;
     }
 }

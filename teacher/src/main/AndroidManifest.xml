@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AttendanceTracker">
-        <activity android:name=".AdminLoginActivity"></activity>
+        <activity android:name=".ListClassActivity"></activity>
+        <activity android:name=".AdminLoginActivity" />
         <activity android:name=".CreateClassActivity" />
         <activity android:name=".AddBatchActivity" />
         <activity android:name=".AdminChangePasswordActivity" />

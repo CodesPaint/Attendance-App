@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -16,7 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -24,10 +28,18 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     Menu menu;
     TextView textView;
 
+    LinearLayout layoutclass;
+    LinearLayout layoutscheduleclass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        layoutclass=(LinearLayout)findViewById(R.id.layoutclass);
+        layoutclass.setOnClickListener(this);
+        layoutscheduleclass=(LinearLayout)findViewById(R.id.layoutscheduleclass);
+        layoutscheduleclass.setOnClickListener(this);
 
         drawerLayout=(DrawerLayout)findViewById(R.id.dashboardactivity);
         navigationView=(NavigationView)findViewById(R.id.nav_view);
@@ -42,11 +54,23 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+    }
 
+    @Override
+    public void onClick(View view){
+        Intent intent;
+        switch (view.getId()) {
+            case R.id.layoutclass:
+                intent=new Intent(DashboardActivity.this,ListClassActivity.class);
+                startActivity(intent);
+                return;
+            case R.id.layoutscheduleclass:
+                
+                return;
+        }
 
 
     }
-
 
     @Override
     public void onBackPressed(){
