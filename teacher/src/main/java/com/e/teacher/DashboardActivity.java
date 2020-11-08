@@ -65,7 +65,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 startActivity(intent);
                 return;
             case R.id.layoutscheduleclass:
-                
+                intent=new Intent(DashboardActivity.this,ScheduleClassActivity.class);
+                startActivity(intent);
                 return;
         }
 
