@@ -38,6 +38,7 @@ public class AddBatchActivity extends AppCompatActivity {
     DatabaseReference dbreference;
     Intent myfileIntent;
     int newbatchid = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

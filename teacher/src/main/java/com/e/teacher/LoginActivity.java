@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText txtregistrationno;
     EditText txtpassword;
+    CurrentTeacher currentTeacher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,8 @@ public class LoginActivity extends AppCompatActivity {
 
         txtregistrationno=(EditText) findViewById(R.id.etregistrationno);
         txtpassword=(EditText)findViewById(R.id.etpasswrd);
+
+        currentTeacher = (CurrentTeacher)getApplicationContext();
     }
     private void isUser() throws Exception {
 
@@ -49,6 +52,9 @@ public class LoginActivity extends AppCompatActivity {
                     String emailFromDB=dataSnapshot.child("email").getValue(String.class);
 
                     if(userEnteredPassword.equals(passwordFromDB)){
+                        currentTeacher.setName(nameFromDB);
+                        currentTeacher.setRegistrationno(Long.parseLong(userEnteredUsername));
+                        currentTeacher.setEmail(emailFromDB);
                         Intent intent=new Intent(LoginActivity.this,DashboardActivity.class);
                         startActivity(intent);
 

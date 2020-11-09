@@ -7,6 +7,11 @@ public class Batch {
     public Batch() {
     }
 
+    public Batch(int batchid, String batchname) {
+        this.batchid = batchid;
+        this.batchname = batchname;
+    }
+
     public int getBatchid() {
         return batchid;
     }
