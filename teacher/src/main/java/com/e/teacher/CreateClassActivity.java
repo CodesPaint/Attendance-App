@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +36,9 @@ public class CreateClassActivity extends AppCompatActivity {
     Button btcreateclass;
     int newclassid=-1;
     EditText txtclassname;
+
+    long teacherid=-1;
+    int batchid=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,30 @@ public class CreateClassActivity extends AppCompatActivity {
         selectteacher=(Spinner)findViewById(R.id.spteachers);
         btcreateclass=(Button)findViewById(R.id.btcreateclass);
         txtclassname=(EditText)findViewById(R.id.etclassname);
+
+        selectbatch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String str[]=parent.getItemAtPosition(position).toString().split("-");
+                batchid=Integer.valueOf(str[1]);
+            }
+            @Override
+            public void onNothingSelected(AdapterView <?> parent) {
+            }
+        });
+
+        selectteacher.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String str[]=parent.getItemAtPosition(position).toString().split("-");
+                teacherid=Long.valueOf(str[1]);
+            }
+            @Override
+            public void onNothingSelected(AdapterView <?> parent) {
+            }
+        });
+
+
         btcreateclass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,9 +140,21 @@ public class CreateClassActivity extends AppCompatActivity {
 
     }
 
-    public void createClass(){
+    private void createClass(){
         Class cls=new Class();
-        cls.setBatchid(newclassid);
+        cls.setClassid(newclassid);
         cls.setClassname(txtclassname.getText().toString());
+        cls.setBatchid(batchid);
+        cls.setTeacherregistrationno(teacherid);
+        if(cls!=null) {
+            DatabaseReference databaseReference1 = FirebaseDatabase.getInstance().getReference().child("classes");
+            databaseReference1.child(String.valueOf(cls.getClassid())).setValue(cls);
+            DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference();
+            databaseReference2.child("flagstatus").child("classid").setValue(newclassid+1);
+            Toast.makeText(CreateClassActivity.this,"Class Created Successfully",Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(CreateClassActivity.this,"Class Creation Failed",Toast.LENGTH_LONG).show();
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 package com.e.teacher;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
@@ -11,6 +12,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ScheduleClassActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -18,19 +26,23 @@ public class ScheduleClassActivity extends AppCompatActivity implements AdapterV
     EditText starttime;
     Spinner selectduration;
     Spinner selectclass;
-    String[] duration = { "30 Minutes","45 Minutes", "1 Hours",};
-
+    String[] duration = { "30 Minutes","45 Minutes", "1 Hours"};
+    ArrayList<String> meetlist;
+    CurrentTeacher currentTeacher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_class);
+
+        meetlist=new ArrayList<>();
+        currentTeacher = (CurrentTeacher)getApplicationContext();
+        loadSpinner();
 
         starttime=(EditText)findViewById(R.id.time);
         selectduration=(Spinner)findViewById(R.id.spduration);
         selectclass=(Spinner)findViewById(R.id.spclass);
         selectclass.setOnItemSelectedListener(this);
         selectduration.setOnItemSelectedListener(this);
-
 
         ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,duration);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -65,16 +77,30 @@ public class ScheduleClassActivity extends AppCompatActivity implements AdapterV
         });
     }
 
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        switch(view.getId()){
-            case R.id.spclass:
-                break;
-        }
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    private void loadSpinner(){
+        DatabaseReference ref1= FirebaseDatabase.getInstance().getReference();
+        ref1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 }

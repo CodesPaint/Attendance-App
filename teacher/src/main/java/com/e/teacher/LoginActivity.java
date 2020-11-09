@@ -48,13 +48,13 @@ public class LoginActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
 
                     String passwordFromDB = dataSnapshot.child("password").getValue(String.class);
-                    String nameFromDB=dataSnapshot.child("registrationno").getValue(String.class);
-                    String emailFromDB=dataSnapshot.child("email").getValue(String.class);
+//                    String nameFromDB=String.valueOf(dataSnapshot.child("registrationno").getValue(Long.class));
+//                    String emailFromDB=dataSnapshot.child("email").getValue(String.class);
 
                     if(userEnteredPassword.equals(passwordFromDB)){
-                        currentTeacher.setName(nameFromDB);
-                        currentTeacher.setRegistrationno(Long.parseLong(userEnteredUsername));
-                        currentTeacher.setEmail(emailFromDB);
+//                        currentTeacher.setName(nameFromDB);
+//                        currentTeacher.setRegistrationno(Long.valueOf(userEnteredUsername.toString()));
+//                        currentTeacher.setEmail(emailFromDB);
                         Intent intent=new Intent(LoginActivity.this,DashboardActivity.class);
                         startActivity(intent);
 
