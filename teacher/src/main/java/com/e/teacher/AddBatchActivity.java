@@ -32,43 +32,33 @@ public class AddBatchActivity extends AppCompatActivity {
     private EditText txtbatchname;
     private ListView listView;
     private ArrayList<Student> studentlist;
+    private Button btnaddstudent;
+
 
     DatabaseReference dbreference;
     Intent myfileIntent;
-
+    int newbatchid = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_batch);
 
-    }
-
-    public void addStudent(View view) {
-        if (txtbatchname.getText().toString().matches("")) {
-            Toast.makeText(this, "Fill the Class name First", Toast.LENGTH_LONG).show();
-            return;
-        }
+        txtbatchname=(EditText) findViewById(R.id.etbatchname);
+        listView=(ListView) findViewById(R.id.lvstudentlist);
+        btnaddstudent=(Button) findViewById(R.id.btaddstudent);
+        btnaddstudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addStudent();
+            }
+        });
 
         dbreference = FirebaseDatabase.getInstance().getReference();
+        System.out.println("2222222222222222");
         dbreference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int newbatchid = -1;
                 newbatchid = snapshot.child("flagstatus").child("batchid").getValue(Integer.class);
-                if (newbatchid != -1) {
-                    Batch batch = new Batch();
-                    batch.setBatchid(newbatchid);
-                    batch.setBatchname(txtbatchname.getText().toString());
-                    dbreference.child("batches").child(String.valueOf(newbatchid)).setValue(batch);
-
-                    dbreference = FirebaseDatabase.getInstance().getReference().child("Students");
-                    for (Student student : studentlist) {
-                        student.setBatchid(newbatchid);
-                        dbreference.child(String.valueOf(student.getScholar_number())).setValue(student);
-                    }
-                    dbreference.child("flagstatus").child("batchid").setValue(newbatchid+1);
-                    Toast.makeText(AddBatchActivity.this,"Batch Created Successfully",Toast.LENGTH_LONG).show();
-                }
             }
 
             @Override
@@ -76,7 +66,33 @@ public class AddBatchActivity extends AppCompatActivity {
 
             }
         });
+    }
 
+    public void addStudent() {
+
+        if(txtbatchname.getText().toString().equals("")) {
+
+            Toast.makeText(this, "Fill the Class name First", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (newbatchid != -1) {
+            Batch batch = new Batch();
+            batch.setBatchid(newbatchid);
+            batch.setBatchname(txtbatchname.getText().toString());
+
+            DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
+            databaseReference.child("batches").child(String.valueOf(newbatchid)).setValue(batch);
+            DatabaseReference databasereference1=FirebaseDatabase.getInstance().getReference().child("Students");
+            for (Student student : studentlist) {
+                student.setBatchid(newbatchid);
+                databasereference1.child(String.valueOf(student.getScholar_number())).setValue(student);
+            }
+            DatabaseReference databaseReference2=FirebaseDatabase.getInstance().getReference();
+            databaseReference2.child("flagstatus").child("batchid").setValue(newbatchid+1);
+            Toast.makeText(AddBatchActivity.this,"Batch Created Successfully",Toast.LENGTH_LONG).show();
+            finish();
+        }
 
     }
 
@@ -112,6 +128,7 @@ public class AddBatchActivity extends AppCompatActivity {
             }
 
             ItemListAdapter customAdapter = new ItemListAdapter(AddBatchActivity.this, R.layout.itemlayout, studentlist);
+
             listView.setAdapter(customAdapter);
 
         } catch (FileNotFoundException e) {
@@ -138,9 +155,12 @@ public class AddBatchActivity extends AppCompatActivity {
             case 10:
                 if (resultCode == RESULT_OK) {
                     String path = data.getData().getPath();
+
                     String[] arrOfStr = path.split(":");
+
                     File file = new File(Environment.getExternalStorageDirectory() + "/" + arrOfStr[1]);
                     String filepath = file.getAbsolutePath();
+
                     int i = filepath.length() - 1;
                     String tmp = "";
                     while (filepath.charAt(i) != '.' && i >= 0) {
@@ -148,6 +168,7 @@ public class AddBatchActivity extends AppCompatActivity {
                         i--;
                     }
                     if (tmp.equals("vsc")) {
+
                         load(filepath);
                     } else {
                         Toast.makeText(AddBatchActivity.this, "Not a CSV file! Select CSV File", Toast.LENGTH_LONG).show();
@@ -156,5 +177,6 @@ public class AddBatchActivity extends AppCompatActivity {
                 break;
         }
     }
+
 
 }

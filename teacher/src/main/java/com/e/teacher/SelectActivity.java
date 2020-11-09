@@ -15,7 +15,7 @@ public class SelectActivity extends AppCompatActivity {
     }
 
     public void redirectToAdmin(View view){
-        Intent intent=new Intent(SelectActivity.this,AdminLoginActivity.class);
+        Intent intent=new Intent(SelectActivity.this,CreateClassActivity.class);
         startActivity(intent);
         return;
     }

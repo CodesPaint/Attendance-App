@@ -1,0 +1,54 @@
+ <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <PreferenceCategory
+            android:title="Accounts"
+            android:key="accounts_category">
+
+            <ListPreference
+                android:key="edit_profile"
+                android:title="Edit Profile"
+                />
+
+            <ListPreference
+                android:key="password"
+                android:title="Change Password" />
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="report_category"
+            android:title="Report">
+            <ListPreference
+                android:key="report_generation"
+                android:title="Generate Report"
+                android:summary="Download Attendance Report"
+                />
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:title="Settings"
+            android:key="settings_category">
+
+            <ListPreference
+                android:key="notifications_setting"
+                android:title="Notifications"
+                />
+
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="about_cateogry"
+            android:title="About Application">
+
+            <ListPreference
+                android:key="get_help_information"
+                android:title="Help And Feedback"
+
+                />
+            <ListPreference
+                android:key="about"
+                android:title="About"
+                ></ListPreference>
+        </PreferenceCategory>
+    </PreferenceScreen>

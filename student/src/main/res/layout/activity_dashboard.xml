@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".DashboardActivity">
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_rectangle"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/manitlogo">
+
+        </ImageView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_rectangle"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+            android:fontFamily="casual"
+            android:text="MANIT Attendance"
+            android:textColor="#000000"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:onClick="callMakeAttendance"
+            >
+
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/attendance"
+            android:onClick="callMakeAttendance"
+            >
+
+        </ImageView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_rectangle"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+            android:fontFamily="casual"
+            android:text="Profile"
+            android:textColor="#000000"
+            android:textSize="22dp"
+            android:onClick="callProfile"
+            android:textStyle="bold">
+
+            >
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/studentprofile"
+            android:onClick="callProfile">
+        </ImageView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_rectangle"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+            android:fontFamily="casual"
+            android:text="Setting"
+            android:textColor="#000000"
+            android:textSize="22dp"
+
+            android:textStyle="bold"
+            android:onClick="callSettings">
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_baseline_settings_24"
+            android:onClick="callSettings" >
+        </ImageView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_rectangle"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_baseline_play_arrow_24"
+            android:fontFamily="casual"
+            android:text="Logout"
+            android:textColor="#000000"
+            android:textSize="22dp"
+
+            android:textStyle="bold"
+            android:onClick="callLogout">
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logout"
+            android:onClick="callLogout" >
+        </ImageView>
+
+    </LinearLayout>
+</LinearLayout>

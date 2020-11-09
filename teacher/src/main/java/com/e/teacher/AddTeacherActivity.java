@@ -20,7 +20,6 @@ public class AddTeacherActivity extends AppCompatActivity {
     EditText txtregistrationno;
     EditText txtcontact;
 
-
     DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +51,12 @@ public class AddTeacherActivity extends AppCompatActivity {
         }
         return true;
     }
+    public void clearField(){
+        txtname.setText("");
+        txtemail.setText("");
+        txtcontact.setText("");
+        txtcontact.setText("");
+    }
     public void addTeacher(View view){
         if(validationCheck()){
             databaseReference=FirebaseDatabase.getInstance().getReference("Teachers");
@@ -69,6 +74,7 @@ public class AddTeacherActivity extends AppCompatActivity {
             teacher.setPassword(encpassword);
             databaseReference.child(String.valueOf(teacher.getRegistrationno())).setValue(teacher);
             Toast.makeText(this,"Teacher Added Successfully",Toast.LENGTH_LONG).show();
+            clearField();
         }
     }
 

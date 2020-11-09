@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="1dp">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/manitlogo"
+            android:layout_gravity="center"
+            android:layout_marginTop="19dp"
+            >
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp"
+            android:fontFamily="casual"
+            android:text="MANIT Attendance"
+            android:textColor="#FFFFFF"
+            android:textSize="23dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/etschnmbr"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:drawableLeft="@drawable/ic_android_black_24dp"
+            android:drawablePadding="5dp"
+            android:hint="Scholar Number "
+            android:padding="20dp"
+            android:textColorHint="#DBE3D4"
+            android:inputType="number"
+
+            >
+        </EditText>
+
+        <EditText
+            android:id="@+id/etpasswrd"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:drawableLeft="@drawable/ic_android_black_24dp"
+            android:drawablePadding="5dp"
+            android:hint="Password"
+            android:padding="20dp"
+            android:textColorHint="#DBE3D4"
+            android:inputType="textPassword"
+            >
+        </EditText>
+
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:text="Login"
+            android:textColor="#32AAA6"
+            android:onClick="callLogin"
+            >
+
+        </Button>
+
+        <TextView
+            android:id="@+id/tvforgotpassword"
+            android:layout_width="350dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:text="Forgot Password"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="15dp"
+            >
+
+        </TextView>
+
+    </LinearLayout>
+</LinearLayout>

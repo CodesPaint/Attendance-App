@@ -80,12 +80,12 @@
             android:textColorHint="#DBE3D4"></EditText>
 
         <Button
-            android:id="@+id/btlogin"
+            android:id="@+id/btaddteacher"
             android:layout_width="350dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:background="#FFFFFF"
-            android:text="Login"
+            android:text="Add Teacher"
             android:textColor="#32AAA6"
             android:onClick="addTeacher"
             android:textStyle="bold">
