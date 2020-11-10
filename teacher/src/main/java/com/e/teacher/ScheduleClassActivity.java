@@ -141,7 +141,6 @@ public class ScheduleClassActivity extends AppCompatActivity {
         });
     }
 
-
     private void loadSpinner(){
         String regno=String.valueOf(currentTeacher.getRegistrationno());
         DatabaseReference ref1= FirebaseDatabase.getInstance().getReference();

@@ -30,6 +30,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
     LinearLayout layoutclass;
     LinearLayout layoutscheduleclass;
+    LinearLayout layoutattendancereport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         layoutclass.setOnClickListener(this);
         layoutscheduleclass=(LinearLayout)findViewById(R.id.layoutscheduleclass);
         layoutscheduleclass.setOnClickListener(this);
+
+        layoutattendancereport=(LinearLayout)findViewById(R.id.layoutattendancereport);
+        layoutattendancereport.setOnClickListener(this);
 
         drawerLayout=(DrawerLayout)findViewById(R.id.dashboardactivity);
         navigationView=(NavigationView)findViewById(R.id.nav_view);
@@ -66,6 +70,10 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 return;
             case R.id.layoutscheduleclass:
                 intent=new Intent(DashboardActivity.this,ScheduleClassActivity.class);
+                startActivity(intent);
+                return;
+            case R.id.layoutattendancereport:
+                intent=new Intent(DashboardActivity.this,GenerateReportActivity.class);
                 startActivity(intent);
                 return;
         }

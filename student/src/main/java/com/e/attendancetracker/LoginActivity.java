@@ -43,8 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     public void openDialog(){
-        DialogForgotPassword dialogobj=new DialogForgotPassword();
-        dialogobj.show(getSupportFragmentManager(),"Forgot Password");
+//        DialogForgotPassword dialogobj=new DialogForgotPassword();
+//        dialogobj.show(getSupportFragmentManager(),"Forgot Password");
     }
     private Boolean validateUsername() {
         String val = scholarno.getText().toString();
