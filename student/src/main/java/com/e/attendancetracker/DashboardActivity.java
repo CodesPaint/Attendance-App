@@ -27,4 +27,13 @@ public class DashboardActivity extends AppCompatActivity {
         Intent intent=new Intent(DashboardActivity.this,ProfileActivity.class);
         startActivity(intent);
     }
+
+    public void callMakeAttendance(View view) {
+        Intent intent=new Intent(DashboardActivity.this,MakeAttendanceActivity.class);
+        startActivity(intent);
+    }
+
+    public void callReport(View view) {
+        
+    }
 }

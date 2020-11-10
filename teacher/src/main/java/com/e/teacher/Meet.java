@@ -1,5 +1,7 @@
 package com.e.teacher;
 
+import java.util.Date;
+
 public class Meet {
     private long meetid;
     private int classid;
@@ -7,8 +9,16 @@ public class Meet {
     private String starttime;
     private String duartion;
     private String meetotp;
-
+    private String meettitle;
     public Meet() {
+    }
+
+    public String getMeettitle() {
+        return meettitle;
+    }
+
+    public void setMeettitle(String meettitle) {
+        this.meettitle = meettitle;
     }
 
     public long getMeetid() {

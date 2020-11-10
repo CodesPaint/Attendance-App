@@ -30,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
+        currentStudent=(CurrentStudent)getApplicationContext();
 
         scholarno=(EditText) findViewById(R.id.etschnmbr);
         password=(EditText) findViewById(R.id.etpasswrd);
@@ -85,8 +86,15 @@ public class LoginActivity extends AppCompatActivity {
                     String passwordFromDB = dataSnapshot.child("password").getValue(String.class);
                     String nameFromDB=dataSnapshot.child("name").getValue(String.class);
                     String emailFromDB=dataSnapshot.child("email").getValue(String.class);
+                    //Long scholarnoFromDB=dataSnapshot.child("scholar_numbr").getValue(Long.class);
+                    int batchFromDB=dataSnapshot.child("batchid").getValue(Integer.class);
 
                     if(userEnteredPassword.equals(passwordFromDB)){
+                        currentStudent.setScholar_number(Long.valueOf(userEnteredUsername));
+                        currentStudent.setName(nameFromDB);
+                        currentStudent.setEmail(emailFromDB);
+                        currentStudent.setBatchid(batchFromDB);
+
                         Intent intent=new Intent(LoginActivity.this,DashboardActivity.class);
                         startActivity(intent);
 
